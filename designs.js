@@ -1,6 +1,4 @@
 const CANVAS = document.getElementById('pixelCanvas');
-const CANVAS_ROW = document.createElement('tr');
-const CANVAS_COL = document.createElement('td');
 
 // Select color input
 // Select size input
@@ -16,6 +14,20 @@ function makeGrid() {
 
     /** makes 2d array from given height and width */
     const tableArray = make2DArray(height, width);
+
+    //before creating canvas table to draw make sure
+    //there's nothing inside table tag of index.html
+    if (CANVAS.innerHTML) {
+        CANVAS.innerHTML = '';
+    }
+
+    /** Creates Canvas from given table array */
+    tableArray.forEach((row) => {
+        CANVAS.append(document.createElement('tr'));
+        row.forEach(() => {
+            CANVAS.lastElementChild.append(document.createElement('td'));
+        });
+    });
 
 }
 
