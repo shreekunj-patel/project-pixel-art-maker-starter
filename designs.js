@@ -41,6 +41,21 @@ function makeGrid(evt) {
 
 }
 
+// Add Event Listener for Canvas to fill cell of grid with color (to draw)
+CANVAS.addEventListener('click', fillColor);
+
+
+/**
+ * fill color (change background color) for given html element tag
+ * @param {Event} evt for use of event.target.nodeName
+ */
+function fillColor(evt) {
+    if (evt.target.nodeName.toLowerCase() === 'td') {
+        let colour = document.getElementById('colorPicker').value;
+        evt.target.style.backgroundColor = colour;
+    }
+}
+
 /**
  * makes 2d array from given height(raw) and width(columns)
  * @param {number} height total number of rows
