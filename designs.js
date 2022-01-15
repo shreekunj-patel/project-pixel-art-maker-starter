@@ -4,8 +4,13 @@ const CANVAS = document.getElementById('pixelCanvas');
 // Select size input
 
 // When size is submitted by the user, call makeGrid()
+const submitBtn = document.querySelector('input[type="submit"]');
+submitBtn.addEventListener('click', makeGrid);
 
-function makeGrid() {
+function makeGrid(evt) {
+
+    //prevent's default event of reloading page.
+    evt.preventDefault();
 
     /** Selects grid height from form "sizePicker" submitted by user */
     const height = parseInt(document.getElementById('inputHeight').value);
