@@ -1,3 +1,7 @@
+const CANVAS = document.getElementById('pixelCanvas');
+const CANVAS_ROW = document.createElement('tr');
+const CANVAS_COL = document.createElement('td');
+
 // Select color input
 // Select size input
 
@@ -29,7 +33,6 @@ function make2DArray(height, width) {
             arr2d[i].push(j);
         }
     }
-    console.log(arr2d);
-
+    //console.log(arr2d);
     return arr2d;
 }
