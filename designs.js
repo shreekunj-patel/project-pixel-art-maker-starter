@@ -2,11 +2,31 @@
 const CANVAS = document.getElementById('pixelCanvas');
 const SUBMIT_BTN = document.querySelector('input[type="submit"]');
 
+let mouseDown = false; // for Drag and Draw Functionality
+
 // When size is submitted by the user, call makeGrid()
 SUBMIT_BTN.addEventListener('click', makeGrid);
 
-// Fill color in clicked cell of Canvas Grid
-CANVAS.addEventListener('click', fillColor);
+// For Drag and Draw
+CANVAS.addEventListener('mousedown', mouseDownListener);
+CANVAS.addEventListener('mouseup', mouseUpListener);
+
+
+// Fill(draw) color in clicked cell of Canvas Grid
+CANVAS.addEventListener('mousedown', fillColor);
+CANVAS.addEventListener('mousemove', fillColor);
+
+
+/** mouse down = true if mousedown event is triggered */
+function mouseDownListener() {
+    mouseDown = true;
+}
+
+
+/** mouse down = false if mouseup event is triggered */
+function mouseUpListener() {
+    mouseDown = false;
+}
 
 
 /**
@@ -48,7 +68,7 @@ function makeGrid(evt) {
  * @param {Event} evt for use of event.target.nodeName
  */
 function fillColor(evt) {
-    if (evt.target.nodeName.toLowerCase() === 'td') {
+    if (evt.target.nodeName.toLowerCase() === 'td' && mouseDown) {
         let colour = document.getElementById('colorPicker').value;
         evt.target.style.backgroundColor = colour;
     }
