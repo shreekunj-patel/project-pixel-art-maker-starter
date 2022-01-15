@@ -1,11 +1,12 @@
+// CONSTANTS
 const CANVAS = document.getElementById('pixelCanvas');
-
-// Select color input
-// Select size input
+const SUBMIT_BTN = document.querySelector('input[type="submit"]');
 
 // When size is submitted by the user, call makeGrid()
-const submitBtn = document.querySelector('input[type="submit"]');
-submitBtn.addEventListener('click', makeGrid);
+SUBMIT_BTN.addEventListener('click', makeGrid);
+
+// Fill color in clicked cell of Canvas Grid
+CANVAS.addEventListener('click', fillColor);
 
 
 /**
@@ -41,9 +42,6 @@ function makeGrid(evt) {
 
 }
 
-// Add Event Listener for Canvas to fill cell of grid with color (to draw)
-CANVAS.addEventListener('click', fillColor);
-
 
 /**
  * fill color (change background color) for given html element tag
@@ -55,6 +53,7 @@ function fillColor(evt) {
         evt.target.style.backgroundColor = colour;
     }
 }
+
 
 /**
  * makes 2d array from given height(raw) and width(columns)
