@@ -7,6 +7,11 @@ const CANVAS = document.getElementById('pixelCanvas');
 const submitBtn = document.querySelector('input[type="submit"]');
 submitBtn.addEventListener('click', makeGrid);
 
+
+/**
+ * This function makes 2d Grid/table from submitted user inputs.
+ * @param {Event} evt Used for Event.preventDefault()
+ */
 function makeGrid(evt) {
 
     //prevent's default event of reloading page.
