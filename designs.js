@@ -5,7 +5,13 @@
 
 function makeGrid() {
 
-// Your code goes here!
+    /** Selects grid height from form "sizePicker" submitted by user */
+    const height = parseInt(document.getElementById('inputHeight').value);
+    /** Selects grid width from form "sizePicker" submitted by user */
+    const width = parseInt(document.getElementById('inputWidth').value);
+
+    /** makes 2d array from given height and width */
+    const tableArray = make2DArray(height, width);
 
 }
 
